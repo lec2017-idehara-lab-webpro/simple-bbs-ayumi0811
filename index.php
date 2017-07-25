@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+﻿<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,19 +21,22 @@
   include_once('database.php');
 
   $result = $db->query("select mid, uid, body, parent, timestamp, name from messages left join users using (uid) order by mid asc");
+  print("<table border>");
   while ( $mes = $result->fetch_assoc()) {
+    print("<tr>");
     $reslink = "res.php?res={$mes['mid']}";
-    print("<a href='$reslink'>{$mes['mid']}</a> ");
+    print("<td><a href='$reslink'>{$mes['mid']}</a> ");
 
-    print( $mes['name'] . " : ");
+    print( "<td>" . $mes['name'] . " : ");
     if( $mes['parent'] != 0 )
       print ">" . $mes['parent'] . " ";
     print( $mes['body'] . $mes['timestamp']);
-
+    print("<td>");
     print( "<a href='eval.php?mid={$mes['mid']}'>評価</a>");
+    print("</tr>");
 
-    print ("<br />");
   }
+  print("</table>");
   $result->close();
  ?>
 
