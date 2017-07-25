@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+﻿<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,11 +27,11 @@
   {
     print "
     <form action='' method='POST'>
-    uid : <input type=text name=uid>
-    name : <input type=text name=name>
-    password : <input type=password name=pass>
-    <input type='submit'>
-    </form>
+     <table><tr><td>ユーザーID: <td><input type=text name=uid>
+    <tr><td>名前 : <td><input type=text name=name>
+    <tr><td>パスワード : <td><input type=password name=pass>
+    <input type='submit' value='登録'>
+    </table></form>
     ";
   }
  ?>
